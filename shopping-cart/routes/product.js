@@ -1,3 +1,4 @@
+/*exportando uma função para adicionar no final do arquivo index.js que é onde as primeiras rotas são criadas*/
 var product = function(router){
 
 	//var express = require('express');
@@ -22,19 +23,3 @@ var product = function(router){
 }
 
 module.exports = product;
-/*
-var express = require('express');
-var router = express.Router();
-var Product = require('../models/product');
-var csrf = require('csurf');
-
-var csrfProtection = csrf();
-router.use(csrfProtection);
-
-//
-router.get('/product', function(req, res, next) {
-	res.send('something');
-});
-
-module.exports = router;
-*/
