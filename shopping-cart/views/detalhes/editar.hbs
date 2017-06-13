@@ -1,0 +1,36 @@
+<form class="form-horizontal" method="post" action="/product/edit">
+  <div class="form-group">
+    <label for="inputName" class="col-sm-2 control-label">Nome do Personagem</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" name='inputName' value='{{lutador.title}}' placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputDesc" class="col-sm-2 control-label">Descrição</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputDesc" name='inputDesc' value='{{lutador.description}}' placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPreco" class="col-sm-2 control-label">Preço</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPreco" name='inputPreco' value='{{lutador.price}}' placeholder="">
+    </div>
+  </div>  
+  <div class="form-group">
+    <label for="inputUrl" class="col-sm-2 control-label">Url da Imagem</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputUrl" name='inputUrl' value='{{lutador.imagePath}}' placeholder="">
+    </div>
+  </div>  
+  <div class="form-group jumbotron-preview">
+    <img src="{{lutador.imagePath}}" alt="{{lutador.title}}" class="">
+  </div>  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-danger">Confirmar Alterações</button>
+    </div>
+  </div>
+  <input type="hidden" name="_csrf" value='{{csrfToken}}'>
+  <input type="hidden" name="id" value='{{lutador.id}}'>
+</form>

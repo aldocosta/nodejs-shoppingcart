@@ -10,3 +10,7 @@
 	font-weight: bold;
 	font-size: 16px;
 }
+
+.jumbotron-preview img{
+	    max-height: 300px;
+}
