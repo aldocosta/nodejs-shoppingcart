@@ -67,7 +67,6 @@ passport.use('local.signin',new LocalStrategy({
         if(!user.validPassword(password)){
             return done(null,false,{message:'Wrong Password'});
         }
-
         done(null, user);
     });
-}))
+}));

@@ -13,7 +13,9 @@ var validator = require('express-validator');//middlware to help with validation
 
 mongoose.connect('mongodb://127.0.0.1:27017/shoppingcart');
 require('./config/passport'); //esquema de validação de usuario e outras configuraçoes do passport
+
 var index = require('./routes/index');
+var userRoutes = require('./routes/user');
 
 var app = express();
 
@@ -36,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //aqui define a rota principal, nao achei muito bom pois se eu tiver outros arquivos de rotas como faço?
 //no caso adicionei um require para outro arquivo no final do index
+app.use('/user', userRoutes);
 app.use('/', index);
 
 // catch 404 and forward to error handler
