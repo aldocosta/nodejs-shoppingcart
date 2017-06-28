@@ -7,6 +7,14 @@ var passport = require('passport');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+router.get('/profile',isLoggedIn,function(req,res,next){
+  res.render('user/profile');
+});
+
+router.use('/',notLoggedIn,function(req,res,next){
+  next();
+});
+
 //signup
 router.get('/signup',function(req,res,next){
   var messages = req.flash('error');
@@ -37,14 +45,18 @@ router.get('/logout',function(req,res,next){
   res.redirect('/');
 });
 
-router.get('/profile',isLoggedIn,function(req,res,next){
-  res.render('user/profile');
-});
  
 module.exports = router;
 
 function isLoggedIn(req,res,next){
   if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect('/');
+}
+
+function notLoggedIn(req,res,next){
+  if(!req.isAuthenticated()){
     return next();
   }
   res.redirect('/');
